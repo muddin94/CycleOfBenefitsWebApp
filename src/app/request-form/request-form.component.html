@@ -45,7 +45,7 @@
     <label for="description">Description</label>
     <textarea id="description" class="form-control" rows="5" formControlName="description"></textarea>
     <div *ngIf="description.touched && description.errors?.required" class="alert alert-danger">Description is Required.</div>
-    <div *ngIf="description.touched && description.errors?.minlength" class="alert alert-danger">Description must be a minimum of 20 characters.</div>
+    <div *ngIf="description.touched && description.errors?.minlength" class="alert alert-danger">Description must be a minimum of {{description.errors.minlength.requiredLength}} characters.</div>
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
