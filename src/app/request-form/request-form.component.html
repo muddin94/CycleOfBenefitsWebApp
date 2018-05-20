@@ -1,40 +1,43 @@
-<form>
+<form [formGroup]="submitRequestForm">
   <div>
     <h1>Submit a Request</h1>
   </div>
   <div class="form-group">
     <label for="nameOfOrg">Name Of Organization</label>
-    <input id="nameOfOrg" type="text" class="form-control">
+    <input id="nameOfOrg" type="text" class="form-control" formControlName="nameOfOrg">
+    <div *ngIf="nameOfOrg.touched && nameOfOrg.invalid" class="alert alert-danger">Name Of Organization is Required.
+      
+    </div>
   </div>
   <div class="form-group">
     <label for="requestStartDate">Request Start Date</label>
-    <input id="requestStartDate" type="date" class="form-control">
+    <input id="requestStartDate" type="date" class="form-control" formControlName="requestStartDate">
   </div>
   <div class="form-group">
     <label for="expense">Expense</label>
-    <input id="expense" type="text" class="form-control">
+    <input id="expense" type="text" class="form-control" formControlName="expense">
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input id="email" type="text" class="form-control">
+    <input id="email" type="text" class="form-control" formControlName="email">
   </div>
   <div class="form-group">
     <label for="nameOfRequester">Name Of Requester</label>
-    <input id="nameOfRequester" type="text" class="form-control">
+    <input id="nameOfRequester" type="text" class="form-control" formControlName="nameOfRequester">
   </div>
   <div class="form-group">
     <label for="phoneNumber">Phone Number</label>
-    <input id="phoneNumber" type="text" class="form-control">
+    <input id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber">
   </div>
   <div>
-    <label for="bucket">Bucket</label>
-    <select class="form-control">
+    <label for="department">Department</label>
+    <select id="department" class="form-control" formControlName="department">
       <option *ngFor="let department of departments" [value]='department'>{{department}}</option>
     </select>
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea id="description" class="form-control" rows="5"></textarea>
+    <textarea id="description" class="form-control" rows="5" formControlName="description"></textarea>
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>
