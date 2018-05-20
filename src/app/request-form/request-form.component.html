@@ -5,39 +5,47 @@
   <div class="form-group">
     <label for="nameOfOrg">Name Of Organization</label>
     <input id="nameOfOrg" type="text" class="form-control" formControlName="nameOfOrg">
-    <div *ngIf="nameOfOrg.touched && nameOfOrg.invalid" class="alert alert-danger">Name Of Organization is Required.
-      
-    </div>
+    <div *ngIf="nameOfOrg.touched && nameOfOrg.errors?.required" class="alert alert-danger">Name Of Organization is Required.</div>
   </div>
   <div class="form-group">
     <label for="requestStartDate">Request Start Date</label>
     <input id="requestStartDate" type="date" class="form-control" formControlName="requestStartDate">
+    <div *ngIf="requestStartDate.touched && requestStartDate.errors?.required" class="alert alert-danger">Request Start Date is Required.</div>
   </div>
   <div class="form-group">
     <label for="expense">Expense</label>
     <input id="expense" type="text" class="form-control" formControlName="expense">
+    <div *ngIf="expense.touched && expense.errors?.required" class="alert alert-danger">Expense is Required.</div>
   </div>
   <div class="form-group">
     <label for="email">Email</label>
     <input id="email" type="text" class="form-control" formControlName="email">
+    <div *ngIf="email.touched && email.errors?.required" class="alert alert-danger">Email is Required.</div>
+    <div *ngIf="email.touched && email.errors?.email" class="alert alert-danger">Email must be in the correct format.</div>
   </div>
   <div class="form-group">
     <label for="nameOfRequester">Name Of Requester</label>
     <input id="nameOfRequester" type="text" class="form-control" formControlName="nameOfRequester">
+    <div *ngIf="nameOfRequester.touched && nameOfRequester.errors?.required" class="alert alert-danger">Name of Requester is Required.</div>
   </div>
   <div class="form-group">
     <label for="phoneNumber">Phone Number</label>
     <input id="phoneNumber" type="text" class="form-control" formControlName="phoneNumber">
+    <div *ngIf="phoneNumber.touched && phoneNumber.errors?.required" class="alert alert-danger">Phone Number is Required.</div>
   </div>
   <div>
     <label for="department">Department</label>
     <select id="department" class="form-control" formControlName="department">
+      <option value=null></option>
       <option *ngFor="let department of departments" [value]='department'>{{department}}</option>
     </select>
+    <div *ngIf="department.touched && department.errors?.required" class="alert alert-danger">Department is Required.</div>
   </div>
   <div class="form-group">
     <label for="description">Description</label>
     <textarea id="description" class="form-control" rows="5" formControlName="description"></textarea>
+    <div *ngIf="description.touched && description.errors?.required" class="alert alert-danger">Description is Required.</div>
+    <div *ngIf="description.touched && description.errors?.minlength" class="alert alert-danger">Description must be a minimum of 20 characters.</div>
   </div>
   <button class="btn btn-primary" type="submit">Submit</button>
 </form>

@@ -23,7 +23,36 @@ export class RequestFormComponent {
     return this.submitRequestForm.get('nameOfOrg');
   }
 
+  get requestStartDate() {
+    return this.submitRequestForm.get('requestStartDate');
+  }
+
+  get expense() {
+    return this.submitRequestForm.get('expense');
+  }
+
+  get email() {
+    return this.submitRequestForm.get('email');
+  }
+
+  get nameOfRequester() {
+    return this.submitRequestForm.get('nameOfRequester');
+  }
+
+  get phoneNumber() {
+    return this.submitRequestForm.get('phoneNumber');
+  }
+
+  get department() {
+    return this.submitRequestForm.get('department');
+  }
+
+  get description() {
+    return this.submitRequestForm.get('description');
+  }
+
   departments=[
+      'Technology',
       'Religious',
       'Community Outreach',
       'Parks And Recreation'
